@@ -1,0 +1,75 @@
+@import "tailwindcss";
+
+@theme {
+  --color-forest-950: #0b1610;
+  --color-forest-900: #11291e;
+  --color-forest-800: #1b402e;
+  --color-forest-700: #25573f;
+  --color-forest-400: #739585;
+  --color-forest-300: #9cb1a6;
+  
+  --color-cream-50: #ffffff;
+  --color-cream-100: #fdfaf5;
+  --color-cream-200: #f5efe3;
+  
+  --color-accent-gold: #c9a84c;
+  --color-accent-gold-hover: #b88a2a;
+  
+  --color-olive-500: #697a5b;
+  --color-olive-600: #526245;
+  
+  --color-mist-300: #b0c4b1;
+
+  --font-serif: "Cormorant Garamond", Georgia, serif;
+  --font-sans: "Plus Jakarta Sans", system-ui, sans-serif;
+  --font-heading: "Cormorant Garamond", Georgia, serif;
+  --font-body: "Plus Jakarta Sans", system-ui, sans-serif;
+
+  --scale-103: 1.03;
+
+  --animate-ken-burns: ken-burns 20s ease-out infinite alternate;
+  --animate-fade-in: fade-in 1.5s ease-out forwards;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+  }
+  
+  body {
+    @apply bg-cream-100 text-forest-950 font-sans;
+  }
+}
+
+@layer utilities {
+  .luxury-overlay {
+    @apply bg-gradient-to-t from-forest-950 via-forest-950/20 to-forest-950/60 mix-blend-multiply opacity-80;
+  }
+  
+  .misty-glow {
+    @apply bg-forest-950/40 backdrop-blur-sm border border-cream-100/10 shadow-[0_4px_30px_rgba(0,0,0,0.1)];
+  }
+  
+  .gold-border-glow {
+    @apply hover:border-accent-gold/40 hover:shadow-[0_0_20px_rgba(201,168,76,0.15)] transition-all;
+  }
+
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}
+
+@keyframes ken-burns {
+  0% { transform: scale(1); }
+  100% { transform: scale(1.1); }
+}
+
+@keyframes fade-in {
+  0% { opacity: 0; transform: translateY(20px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
